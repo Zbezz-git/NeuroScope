@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import argparse
 import sys
-from pathlib import Path
+import time
 
 
 def main() -> int:
@@ -70,24 +70,20 @@ def main() -> int:
 def run_server(args) -> int:
     """Run the NeuroScope server."""
     from neuroscope.core.server import NeuroScopeServer
-    from rich.console import Console
 
-    console = Console()
-    console.print("[bold blue]NeuroScope Server[/bold blue]")
-    console.print(f"Starting server on {args.host}:{args.port}")
+    print("[NeuroScope] Starting server...")
+    print(f"[NeuroScope] Host: {args.host}:{args.port}")
 
     server = NeuroScopeServer(host=args.host, port=args.port)
     server.start(open_browser=not args.no_browser)
 
-    console.print("\n[dim]Press Ctrl+C to stop the server[/dim]\n")
+    print("[NeuroScope] Server running. Press Ctrl+C to stop.\n")
 
     try:
-        # Keep the main thread alive
-        import time
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        console.print("\n[yellow]Shutting down...[/yellow]")
+        print("\n[NeuroScope] Shutting down...")
         server.stop()
 
     return 0
@@ -95,21 +91,17 @@ def run_server(args) -> int:
 
 def run_demo(args) -> int:
     """Run a demo with a sample model."""
-    from rich.console import Console
-
-    console = Console()
-
     try:
         import torch
         import torch.nn as nn
     except ImportError:
-        console.print("[red]PyTorch is required for demo. Install with: pip install torch[/red]")
+        print("[ERROR] PyTorch is required for demo. Install with: pip install torch")
         return 1
 
     import neuroscope
 
-    console.print("[bold blue]NeuroScope Demo[/bold blue]")
-    console.print(f"Creating {args.model} model...")
+    print("[NeuroScope] Demo")
+    print(f"[NeuroScope] Creating {args.model} model...")
 
     # Create demo model
     if args.model == "mlp":
@@ -146,28 +138,28 @@ def run_demo(args) -> int:
         sample_input = (torch.randn(2, 10, 512), torch.randn(2, 10, 512))
 
     # Attach and run
-    console.print("Attaching NeuroScope...")
+    print("[NeuroScope] Attaching tracer...")
     neuroscope.attach(model)
     neuroscope.start_server()
 
-    console.print("Running forward pass...")
+    print("[NeuroScope] Running forward pass...")
     with torch.no_grad():
         if isinstance(sample_input, tuple):
             _ = model(*sample_input)
         else:
             _ = model(sample_input)
 
-    graph = neuroscope._active_tracer.get_graph()
-    console.print(f"\n[green]✓ Captured {len(graph)} nodes[/green]")
+    if neuroscope._active_tracer:
+        graph = neuroscope._active_tracer.get_graph()
+        print(f"[NeuroScope] Captured {len(graph)} nodes")
 
-    console.print("\n[dim]View the graph in your browser. Press Ctrl+C to exit.[/dim]\n")
+    print("\n[NeuroScope] View graph in browser. Press Ctrl+C to exit.\n")
 
     try:
-        import time
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        console.print("\n[yellow]Cleaning up...[/yellow]")
+        print("\n[NeuroScope] Cleaning up...")
         neuroscope.detach()
         neuroscope.stop_server()
 
